@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070605">
+  <meta name="robots" content="noindex,nofollow">
+  <title>管理画面 | 隠れ家えいと</title>
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/js/supabase-config.js" defer></script>
+  <script src="assets/js/admin.js" defer></script>
+</head>
+<body class="admin-page">
+  <div id="admin-loading" class="admin-loading">
+    <div class="loader-ring"></div>
+    <p>管理者権限を確認しています…</p>
+  </div>
+
+  <div id="admin-app" hidden>
+    <header class="admin-header">
+      <a class="admin-brand" href="index.html">
+        <span class="admin-brand__seal">8</span>
+        <span><strong>隠れ家えいと</strong><small>ADMIN CONSOLE</small></span>
+      </a>
+
+      <div class="admin-header__actions">
+        <a class="admin-secondary-button" href="index.html" target="_blank" rel="noopener">公開サイト</a>
+        <button id="logout-button" class="admin-secondary-button" type="button">ログアウト</button>
+      </div>
+    </header>
+
+    <main class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-user">
+          <span class="admin-user__avatar">A</span>
+          <div><strong>管理者</strong><small id="admin-email">確認中</small></div>
+        </div>
+
+        <nav class="admin-nav" aria-label="管理メニュー">
+          <button class="active" data-admin-tab="menu" type="button"><span>🍸</span>メニュー管理</button>
+          <button data-admin-tab="store" type="button"><span>🏠</span>店舗設定</button>
+          <button data-admin-tab="status" type="button"><span>📊</span>運用状況</button>
+        </nav>
+
+        <div class="admin-sidebar__note">
+          <strong>Ver.6 Part2</strong>
+          <p>画像変更はPart3で追加します。</p>
+        </div>
+      </aside>
+
+      <section class="admin-content">
+        <div class="admin-topline">
+          <div>
+            <p class="admin-eyebrow">KAKUREGA EIGHT CMS</p>
+            <h1 id="admin-page-title">メニュー管理</h1>
+          </div>
+          <div id="connection-status" class="connection-chip"><i></i><span>接続確認中</span></div>
+        </div>
+
+        <section id="tab-menu" class="admin-tab active">
+          <div class="summary-grid">
+            <article><span>登録商品</span><strong id="summary-total">0</strong></article>
+            <article><span>おすすめ</span><strong id="summary-recommended">0</strong></article>
+            <article><span>売り切れ</span><strong id="summary-soldout">0</strong></article>
+          </div>
+
+          <div class="admin-toolbar">
+            <label class="admin-search">
+              <span>⌕</span>
+              <input id="admin-search" type="search" placeholder="商品名を検索">
+            </label>
+            <select id="admin-category" aria-label="カテゴリー">
+              <option value="all">すべてのカテゴリー</option>
+              <option value="cocktail">カクテル</option>
+              <option value="whisky">ウイスキー</option>
+              <option value="nonalcohol">ノンアル</option>
+              <option value="beer">ビール</option>
+              <option value="wine">ワイン</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div id="admin-menu-list" class="admin-menu-list"></div>
+          <p id="admin-menu-empty" class="admin-empty" hidden>該当する商品がありません。</p>
+        </section>
+
+        <section id="tab-store" class="admin-tab">
+          <form id="store-settings-form" class="settings-card">
+            <div class="settings-card__head">
+              <div>
+                <p class="admin-eyebrow">STORE SETTINGS</p>
+                <h2>店舗情報</h2>
+              </div>
+              <button class="admin-primary-button" type="submit">保存する</button>
+            </div>
+
+            <div class="settings-grid">
+              <label><span>店舗名</span><input name="storeName" type="text" required></label>
+              <label><span>英語表記</span><input name="storeEnglish" type="text"></label>
+              <label><span>営業表示</span><input name="openText" type="text" placeholder="本日営業中"></label>
+              <label><span>営業時間</span><input name="hours" type="text" placeholder="19:00〜LAST"></label>
+              <label class="wide"><span>Instagram URL</span><input name="instagram" type="url"></label>
+              <label class="wide"><span>Google Map URL</span><input name="mapUrl" type="url"></label>
+            </div>
+          </form>
+        </section>
+
+        <section id="tab-status" class="admin-tab">
+          <div class="status-panel">
+            <p class="admin-eyebrow">SYSTEM STATUS</p>
+            <h2>運用状況</h2>
+            <dl>
+              <div><dt>データベース</dt><dd id="status-database">確認中</dd></div>
+              <div><dt>ログインユーザー</dt><dd id="status-user">確認中</dd></div>
+              <div><dt>最終読込</dt><dd id="status-loaded">—</dd></div>
+              <div><dt>商品数</dt><dd id="status-count">0件</dd></div>
+            </dl>
+            <p class="status-help">画像アップロード、新商品追加、削除、並べ替えはPart3・Part4で追加します。</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="edit-dialog" class="edit-dialog">
+    <form id="edit-form" method="dialog">
+      <div class="edit-dialog__header">
+        <div>
+          <p class="admin-eyebrow">EDIT DRINK</p>
+          <h2 id="edit-title">商品編集</h2>
+        </div>
+        <button id="edit-close" class="icon-button" type="button" aria-label="閉じる">×</button>
+      </div>
+
+      <div class="edit-preview">
+        <img id="edit-image" src="" alt="">
+        <div>
+          <strong id="edit-preview-name"></strong>
+          <small>画像変更はPart3で対応します</small>
+        </div>
+      </div>
+
+      <input id="edit-slug" type="hidden">
+
+      <div class="edit-grid">
+        <label><span>日本語名</span><input id="edit-name-ja" type="text" required maxlength="60"></label>
+        <label><span>英語名</span><input id="edit-name-en" type="text" maxlength="80"></label>
+        <label><span>価格（税込）</span><input id="edit-price" type="number" min="0" step="10" required></label>
+        <label>
+          <span>カテゴリー</span>
+          <select id="edit-category">
+            <option value="cocktail">カクテル</option>
+            <option value="whisky">ウイスキー</option>
+            <option value="nonalcohol">ノンアル</option>
+            <option value="beer">ビール</option>
+            <option value="wine">ワイン</option>
+            <option value="other">その他</option>
+          </select>
+        </label>
+        <label class="wide"><span>バッジ</span><input id="edit-tag" type="text" maxlength="30" placeholder="初心者向け"></label>
+        <label class="wide"><span>説明</span><textarea id="edit-description" rows="4" maxlength="300"></textarea></label>
+      </div>
+
+      <div class="toggle-grid">
+        <label class="switch-row">
+          <span><strong>今日のおすすめ</strong><small>TOPページへ表示します</small></span>
+          <input id="edit-recommended" type="checkbox"><i></i>
+        </label>
+        <label class="switch-row">
+          <span><strong>販売中</strong><small>OFFにすると売り切れ表示になります</small></span>
+          <input id="edit-available" type="checkbox"><i></i>
+        </label>
+      </div>
+
+      <div class="slider-section">
+        <h3>味チャート</h3>
+        <div class="slider-grid">
+          <label><span>甘さ <b id="sweet-value">0</b></span><input id="edit-sweet" type="range" min="0" max="5"></label>
+          <label><span>酸味 <b id="sour-value">0</b></span><input id="edit-sour" type="range" min="0" max="5"></label>
+          <label><span>苦味 <b id="bitter-value">0</b></span><input id="edit-bitter" type="range" min="0" max="5"></label>
+          <label><span>アルコール感 <b id="strength-value">0</b></span><input id="edit-strength" type="range" min="0" max="5"></label>
+          <label><span>スッキリ度 <b id="fresh-value">0</b></span><input id="edit-fresh" type="range" min="0" max="5"></label>
+        </div>
+      </div>
+
+      <div class="edit-dialog__footer">
+        <button id="edit-cancel" class="admin-secondary-button" type="button">キャンセル</button>
+        <button id="edit-save" class="admin-primary-button" type="submit">変更を保存</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="admin-toast" class="admin-toast" role="status" aria-live="polite"></div>
+</body>
+</html>

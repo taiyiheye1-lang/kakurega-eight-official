@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#060504">
+  <meta name="description" content="隠れ家えいとのドリンクメニュー。">
+  <title>MENU | 隠れ家えいと</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/data/menu-data.js" defer></script>
+  <script src="assets/js/supabase-config.js" defer></script>
+  <script src="assets/js/data-service.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</head>
+<body data-page="menu">
+  <div class="noise" aria-hidden="true"></div>
+  <div id="data-source-badge" class="data-source-badge" title="データ取得元">
+    <i></i><span>接続確認中</span>
+  </div>
+  <header class="menu-hero">
+    <div class="menu-hero__media"><img src="assets/images/hero.jpg" alt=""><div></div></div>
+    <div class="topbar shell">
+      <a class="brand" href="index.html"><span class="brand__seal">8</span><span><strong data-setting="storeName">隠れ家えいと</strong><small>HIDDEN BAR EIGHT</small></span></a>
+      <div class="open-pill"><i></i><span><strong>本日営業中</strong><small>OPEN 19:00 - LAST</small></span></div>
+    </div>
+    <div class="menu-hero__content shell">
+      <p class="eyebrow">PREMIUM DRINK COLLECTION</p>
+      <h1>MENU</h1>
+      <p>今夜の気分に合う一杯を。</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-tools shell">
+      <label class="search-box"><span>⌕</span><input id="menu-search" type="search" placeholder="カクテル・ウイスキーを検索"></label>
+      <div class="filter-row" id="category-filters">
+        <button class="active" data-filter="all">すべて</button>
+        <button data-filter="cocktail">カクテル</button>
+        <button data-filter="whisky">ウイスキー</button>
+        <button data-filter="nonalcohol">ノンアル</button>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div id="menu-grid" class="menu-grid"></div>
+      <p id="menu-empty" class="empty-message" hidden>条件に合うメニューがありません。</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="メインメニュー">
+    <a href="index.html"><span>⌂</span><small>HOME</small></a>
+    <a class="active" href="menu.html"><span>≡</span><small>MENU</small></a>
+    <a class="bottom-nav__primary" href="index.html#diagnosis"><span>🍸</span><small>診断</small></a>
+    <a href="index.html#diagnosis"><span>▣</span><small>誕生酒</small></a>
+    <a href="index.html#access"><span>⌖</span><small>MAP</small></a>
+  </nav>
+
+  <dialog id="drink-dialog" class="drink-dialog">
+    <button class="drink-dialog__close" aria-label="閉じる">×</button>
+    <div id="drink-dialog-content"></div>
+  </dialog>
+</body>
+</html>
