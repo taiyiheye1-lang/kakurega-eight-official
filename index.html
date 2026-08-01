@@ -18,7 +18,22 @@
   <script src="assets/js/app.js" defer></script>
   <script src="assets/js/top-final.js" defer></script>
 </head>
-<body data-page="home" class="top-final">
+<body data-page="home" class="top-final icon-system-final">
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-diagnosis" viewBox="0 0 64 64"><path d="M32 10 54 32 32 54 10 32 32 10Z" fill="none"/><path d="M24 24h16v16H24z" fill="none" opacity=".35"/></symbol>
+    <symbol id="i-birthday" viewBox="0 0 64 64"><rect x="13" y="13" width="38" height="38" rx="7" fill="none"/><path d="M20 22h24M20 31h24M20 40h24M27 18v28M37 18v28" fill="none"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 64 64"><path d="M32 52S10 40 10 24c0-8 6-14 14-14 5 0 8 3 8 3s3-3 8-3c8 0 14 6 14 14 0 16-22 28-22 28Z" fill="none"/></symbol>
+    <symbol id="i-stamp" viewBox="0 0 64 64"><path d="M17 17h30v30H17z" fill="none"/><path d="M23 23h18v18H23z" fill="none" opacity=".45"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 64 64"><rect x="12" y="12" width="40" height="40" rx="12" fill="none"/><circle cx="32" cy="32" r="10" fill="none"/><circle cx="45" cy="19" r="2.5"/></symbol>
+    <symbol id="i-map" viewBox="0 0 64 64"><path d="M32 56s17-16 17-31a17 17 0 1 0-34 0c0 15 17 31 17 31Z" fill="none"/><circle cx="32" cy="25" r="6" fill="none"/></symbol>
+    <symbol id="i-home" viewBox="0 0 64 64"><path d="M10 30 32 11l22 19v23H39V38H25v15H10V30Z" fill="none"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 64 64"><path d="M16 54h32M22 54l5-31h10l5 31M24 23h16l-4-8h-8l-4 8Z" fill="none"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 64 64"><path d="M17 46h30l-4-7V27a11 11 0 0 0-22 0v12l-4 7Z" fill="none"/><path d="M27 50c1 4 9 4 10 0" fill="none"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 64 64"><path d="M12 32h38M36 18l14 14-14 14" fill="none"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 64 64"><path d="m16 24 16 16 16-16" fill="none"/></symbol>
+    <symbol id="i-menu-lines" viewBox="0 0 64 64"><path d="M12 18h40M12 32h40M12 46h40" fill="none"/></symbol>
+  </svg>
+
   <div class="noise" aria-hidden="true"></div>
 
   <header class="hero final-hero" id="home">
@@ -46,9 +61,9 @@
       <p class="hero__lead intro-item">一人でも、みんなでも。<br>気軽に楽しめる小さな隠れ家。</p>
 
       <a class="diagnosis-cta intro-item" href="#diagnosis-main">
-        <span class="diagnosis-cta__orb" aria-hidden="true">◇</span>
+        <span class="diagnosis-cta__orb icon-shell icon-shell--purple" aria-hidden="true"><svg><use href="#i-diagnosis"></use></svg></span>
         <span class="diagnosis-cta__copy"><small>COCKTAIL PERSONAL DIAGNOSIS</small><strong>カクテルパーソナル診断</strong><em>心理テスト感覚で、今夜の一杯を見つける</em></span>
-        <span class="diagnosis-cta__action"><i>Let's Find!</i><b>→</b></span>
+        <span class="diagnosis-cta__action"><i>Let's Find!</i><b class="round-arrow"><svg><use href="#i-arrow"></use></svg></b></span>
       </a>
       <span class="scroll-cue" aria-hidden="true"><i></i>SCROLL</span>
     </div>
@@ -78,9 +93,9 @@
 
     <section class="section shell final-section" id="diagnosis-main">
       <article class="feature-card birthday-card reveal">
-        <span class="feature-card__icon" aria-hidden="true">▦</span>
+        <span class="feature-card__icon icon-shell icon-shell--gold" aria-hidden="true"><svg><use href="#i-birthday"></use></svg></span>
         <div><p class="eyebrow">BIRTHDAY COCKTAIL</p><h2>誕生酒診断</h2><p>あなたの誕生日から、特別な一杯を見つけよう。</p></div>
-        <a class="gold-button" href="#">診断する <span>→</span></a>
+        <a class="gold-button" href="#">診断する <span class="button-arrow"><svg><use href="#i-arrow"></use></svg></span></a>
       </article>
     </section>
 
@@ -100,16 +115,16 @@
     </section>
 
     <section class="section shell utility-grid final-utilities">
-      <a class="utility" href="#"><span>♡</span><strong>相性診断</strong><small>COMING SOON</small></a>
-      <a class="utility" href="#"><span>▣</span><strong>スタンプカード</strong><small>COMING SOON</small></a>
-      <a class="utility" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener"><span>◎</span><strong>Instagram</strong><small>@bar_kakurega_eito</small></a>
-      <a class="utility" href="#access"><span>⌖</span><strong>アクセス</strong><small>MAPを見る</small></a>
+      <a class="utility utility--compatibility" href="#"><span class="utility__icon icon-shell icon-shell--purple"><svg><use href="#i-heart"></use></svg></span><span class="utility__copy"><strong>相性診断</strong><small>COMING SOON</small></span><svg class="utility__arrow"><use href="#i-arrow"></use></svg></a>
+      <a class="utility utility--stamp" href="#"><span class="utility__icon icon-shell icon-shell--gold"><svg><use href="#i-stamp"></use></svg></span><span class="utility__copy"><strong>スタンプカード</strong><small>COMING SOON</small></span><svg class="utility__arrow"><use href="#i-arrow"></use></svg></a>
+      <a class="utility utility--instagram" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener"><span class="utility__icon icon-shell icon-shell--green"><svg><use href="#i-instagram"></use></svg></span><span class="utility__copy"><strong>Instagram</strong><small>@bar_kakurega_eito</small></span><svg class="utility__arrow"><use href="#i-arrow"></use></svg></a>
+      <a class="utility utility--map" href="#access"><span class="utility__icon icon-shell icon-shell--orange"><svg><use href="#i-map"></use></svg></span><span class="utility__copy"><strong>アクセス</strong><small>MAPを見る</small></span><svg class="utility__arrow"><use href="#i-arrow"></use></svg></a>
     </section>
 
     <section class="section shell final-section" id="access">
       <article class="store-card final-store reveal">
         <div class="final-store__shade"></div>
-        <div class="final-store__content"><p class="eyebrow">HIDDEN BAR EIGHT</p><h2 data-setting="storeName">隠れ家えいと</h2><dl><div><dt>営業時間</dt><dd data-setting="hours">19:00〜LAST</dd></div><div><dt>スタイル</dt><dd>カクテル・ウイスキー・カラオケ</dd></div></dl><div class="store-card__buttons"><a class="gold-button" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener">Instagram</a><a class="dark-button" href="#">Google Map</a></div></div>
+        <div class="final-store__content"><p class="eyebrow">HIDDEN BAR EIGHT</p><h2 data-setting="storeName">隠れ家えいと</h2><dl><div><dt>営業時間</dt><dd data-setting="hours">19:00〜LAST</dd></div><div><dt>スタイル</dt><dd>カクテル・ウイスキー・カラオケ</dd></div></dl><div class="store-card__buttons"><a class="social-link-card social-link-card--instagram" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener"><svg><use href="#i-instagram"></use></svg><span><strong>Instagram</strong><small>@bar_kakurega_eito</small></span><b><svg><use href="#i-arrow"></use></svg></b></a><a class="social-link-card social-link-card--map" href="#"><svg><use href="#i-map"></use></svg><span><strong>Google Map</strong><small>店舗の場所を確認</small></span><b><svg><use href="#i-arrow"></use></svg></b></a></div></div>
       </article>
     </section>
   </main>
@@ -117,11 +132,11 @@
   <footer class="footer">© 2026 HIDDEN BAR EIGHT<br><a href="admin-login.html">ADMIN</a></footer>
 
   <nav class="bottom-nav" aria-label="メインメニュー">
-    <a class="active" href="index.html"><span>⌂</span><small>HOME</small></a>
-    <a href="menu.html"><span>♢</span><small>MENU</small></a>
-    <a class="bottom-nav__primary" href="#diagnosis-main"><span>◇</span><small>診断</small></a>
-    <a href="#diagnosis-main"><span>▦</span><small>誕生酒</small></a>
-    <a href="#access"><span>⌖</span><small>MAP</small></a>
+    <a class="active" href="index.html"><span class="nav-icon"><svg><use href="#i-home"></use></svg></span><small>HOME</small></a>
+    <a href="menu.html"><span class="nav-icon"><svg><use href="#i-menu"></use></svg></span><small>MENU</small></a>
+    <a class="bottom-nav__primary" href="#diagnosis-main"><span class="nav-icon"><svg><use href="#i-diagnosis"></use></svg></span><small>診断</small></a>
+    <a href="#diagnosis-main"><span class="nav-icon"><svg><use href="#i-birthday"></use></svg></span><small>誕生酒</small></a>
+    <a href="#access"><span class="nav-icon"><svg><use href="#i-map"></use></svg></span><small>MAP</small></a>
   </nav>
 
   <div class="lightbox" aria-hidden="true"><button class="lightbox__close" aria-label="閉じる">×</button><button class="lightbox__prev" aria-label="前の写真">‹</button><figure><img src="" alt="拡大表示"><figcaption></figcaption></figure><button class="lightbox__next" aria-label="次の写真">›</button></div>
