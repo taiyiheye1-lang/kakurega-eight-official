@@ -3,115 +3,122 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#060504">
-  <meta name="description" content="隠れ家えいと。今日の気分に、ちょうどいい一杯を。">
+  <meta name="theme-color" content="#08060b">
+  <meta name="description" content="鹿児島の隠れ家BAR えいと。今日の気分に、ちょうどいい一杯を。">
   <title>隠れ家えいと | HIDDEN BAR EIGHT</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/v7-part1.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="assets/data/menu-data.js" defer></script>
   <script src="assets/js/supabase-config.js" defer></script>
   <script src="assets/js/data-service.js" defer></script>
   <script src="assets/js/app.js" defer></script>
+  <script src="assets/js/v7-part1.js" defer></script>
 </head>
-<body data-page="home">
+<body data-page="home" class="v7-home">
   <div class="noise" aria-hidden="true"></div>
-  <div id="data-source-badge" class="data-source-badge" title="データ取得元">
-    <i></i><span>接続確認中</span>
-  </div>
-  <header class="hero" id="home">
+  <div id="data-source-badge" class="data-source-badge" title="データ取得元"><i></i><span>接続確認中</span></div>
+
+  <header class="hero v7-hero" id="home">
     <div class="hero__media">
-      <img src="assets/images/hero.jpg" alt="">
+      <img src="assets/images/hero-v7-complete.jpg" alt="隠れ家えいとのカウンターと店内">
       <div class="hero__shade"></div>
       <div class="hero__glow"></div>
     </div>
 
     <div class="topbar shell">
-      <a class="brand" href="#home">
-        <span class="brand__seal">8</span>
-        <span><strong data-setting="storeName">隠れ家えいと</strong><small>HIDDEN BAR EIGHT</small></span>
+      <a class="brand v7-brand" href="#home" aria-label="隠れ家えいと トップへ">
+        <span class="brand__seal"><small>隠れ家</small><strong>えいと</strong><em>HIDDEN BAR EIGHT</em></span>
       </a>
       <div class="open-pill"><i></i><span><strong>本日営業中</strong><small>OPEN 19:00 - LAST</small></span></div>
     </div>
 
     <div class="hero__content shell reveal">
-      <p class="eyebrow">HIDDEN BAR EIGHT</p>
-      <h1>今日の気分に、<br><span>ちょうどいい一杯を。</span></h1>
-      <p class="hero__lead">一人でも、みんなでも。<br>気軽に楽しめる小さな隠れ家。</p>
+      <div class="hero__copy">
+        <p class="eyebrow">HIDDEN BAR EIGHT</p>
+        <h1>今日の気分に、<br><span>ちょうどいい一杯を。</span></h1>
+        <p class="hero__lead">一人でも、みんなでも。<br>気軽に楽しめる小さな隠れ家。</p>
+      </div>
 
-      <a class="diagnosis-cta" href="#diagnosis">
-        <span class="diagnosis-cta__orb">🍸</span>
-        <span class="diagnosis-cta__copy"><small>30秒で見つかる、今夜の一杯</small><strong>カクテルパーソナル診断</strong><em>心理テスト感覚で気軽にスタート</em></span>
+      <a class="diagnosis-cta" href="#diagnosis-main" aria-label="カクテルパーソナル診断を始める">
+        <span class="diagnosis-cta__orb" aria-hidden="true">◇</span>
+        <span class="diagnosis-cta__copy"><small>COCKTAIL PERSONAL DIAGNOSIS</small><strong>カクテルパーソナル診断</strong><em>心理テスト感覚で、今夜の一杯を見つける</em></span>
         <span class="diagnosis-cta__action"><i>Let's Start!</i><b>→</b></span>
       </a>
+      <a class="scroll-cue" href="#selection"><span></span><small>SCROLL</small></a>
     </div>
   </header>
 
   <main>
-    <section class="section" id="selection">
+    <section class="section v7-section" id="selection">
       <div class="section-head shell reveal">
-        <div><p class="eyebrow">TODAY'S SELECTION</p><h2>今日のおすすめ</h2></div>
-        <a href="menu.html">すべて見る →</a>
+        <div><p class="eyebrow section-kicker section-kicker--orange">TODAY'S SELECTION</p><h2>今日のおすすめ</h2></div>
+        <a href="menu.html">すべて見る <span>→</span></a>
       </div>
       <div id="recommended-list" class="recommend-rail shell reveal"></div>
+      <div class="rail-dots shell" id="recommend-dots" aria-hidden="true"></div>
     </section>
 
-    <section class="section" id="events">
-      <div class="section-head shell reveal"><div><p class="eyebrow">EVENT</p><h2>今月のイベント</h2></div></div>
+    <section class="section v7-section" id="events">
+      <div class="section-head shell reveal">
+        <div><p class="eyebrow section-kicker section-kicker--purple">EVENT</p><h2>今月のイベント</h2></div>
+        <a href="#events">すべて見る <span>→</span></a>
+      </div>
       <div class="event-grid shell">
-        <article class="event-card reveal"><span>🍸</span><div><small>LIMITED</small><h3>カクテルフェア</h3><p>期間限定の一杯を準備中。</p><b>近日公開</b></div></article>
-        <article class="event-card reveal"><span>🎤</span><div><small>STUDENT NIGHT</small><h3>学生ナイト</h3><p>学生証提示で特典あり。</p><b>COMING SOON</b></div></article>
-        <article class="event-card reveal"><span>🎂</span><div><small>BIRTHDAY</small><h3>誕生日特典</h3><p>誕生日月に特別な一杯を。</p><b>COMING SOON</b></div></article>
+        <article class="event-card event-card--coming reveal"><div class="event-card__label">COMING SOON</div><div class="event-card__body"><small>NEXT EVENT</small><h3>近日公開</h3><p>次のイベントを準備中です。</p><b>お楽しみに</b></div></article>
+        <article class="event-card event-card--fair reveal"><div class="event-card__icon">♢</div><div class="event-card__body"><small>COCKTAIL FAIR</small><h3>カクテルフェア</h3><p>期間限定カクテルが登場。</p><b>COMING SOON</b></div></article>
+        <article class="event-card event-card--student reveal"><div class="event-card__icon">◎</div><div class="event-card__body"><small>STUDENT NIGHT</small><h3>学生イベント</h3><p>学生証提示で特典を予定。</p><b>COMING SOON</b></div></article>
       </div>
     </section>
 
-    <section class="section shell" id="diagnosis">
+    <section class="section shell v7-section" id="diagnosis-main">
       <article class="feature-card reveal">
-        <span class="feature-card__icon">📅</span>
-        <div><p class="eyebrow">BIRTHDAY COCKTAIL</p><h2>誕生酒診断</h2><p>誕生日から、あなたを表す特別な一杯を見つけよう。</p></div>
-        <a class="gold-button" href="#">診断する →</a>
+        <span class="feature-card__icon" aria-hidden="true">▦</span>
+        <div><p class="eyebrow">BIRTHDAY COCKTAIL</p><h2>誕生酒診断</h2><p>あなたの誕生日から、特別な一杯を見つけよう。</p></div>
+        <a class="feature-card__button" href="#">診断する <span>→</span></a>
       </article>
     </section>
 
-    <section class="section" id="gallery">
-      <div class="section-head shell reveal"><div><p class="eyebrow">GALLERY</p><h2>店内の雰囲気</h2></div></div>
+    <section class="section v7-section" id="gallery">
+      <div class="section-head shell reveal">
+        <div><p class="eyebrow section-kicker section-kicker--cyan">GALLERY</p><h2>店内の雰囲気</h2></div>
+        <span class="section-note">写真をタップ</span>
+      </div>
       <div class="gallery shell reveal">
-        <button class="gallery__main" data-lightbox="assets/images/gallery/gallery-01.jpg"><img src="assets/images/gallery/gallery-01.jpg" alt="隠れ家えいとの店内"></button>
-        <button data-lightbox="assets/images/gallery/gallery-02.jpg"><img src="assets/images/gallery/gallery-02.jpg" alt="店内のボトル棚"></button>
-        <button data-lightbox="assets/images/gallery/gallery-03.jpg"><img src="assets/images/gallery/gallery-03.jpg" alt="カラオケ設備"></button>
-        <button data-lightbox="assets/images/gallery/gallery-04.jpg"><img src="assets/images/gallery/gallery-04.jpg" alt="店内のショット"></button>
-        <button data-lightbox="assets/images/gallery/gallery-05.jpg"><img src="assets/images/gallery/gallery-05.jpg" alt="店内のボトル"></button>
-        <button data-lightbox="assets/images/gallery/gallery-06.jpg"><img src="assets/images/gallery/gallery-06.jpg" alt="カウンター席"></button>
+        <button data-caption="カウンター席" data-lightbox="assets/images/gallery/gallery-06.jpg"><img src="assets/images/gallery/gallery-06.jpg" alt="カウンター席"><span>カウンター席</span></button>
+        <button data-caption="ボトル棚" data-lightbox="assets/images/gallery/gallery-02.jpg"><img src="assets/images/gallery/gallery-02.jpg" alt="ボトル棚"><span>ボトル棚</span></button>
+        <button data-caption="店内の灯り" data-lightbox="assets/images/gallery/gallery-04.jpg"><img src="assets/images/gallery/gallery-04.jpg" alt="店内の灯り"><span>店内の灯り</span></button>
+        <button data-caption="カラオケ設備" data-lightbox="assets/images/gallery/gallery-01.jpg"><img src="assets/images/gallery/gallery-01.jpg" alt="カラオケ設備"><span>カラオケ設備</span></button>
+        <button data-caption="ウイスキー" data-lightbox="assets/images/gallery/gallery-05.jpg"><img src="assets/images/gallery/gallery-05.jpg" alt="ウイスキー"><span>ウイスキー</span></button>
+        <button data-caption="ドリンクカウンター" data-lightbox="assets/images/gallery/gallery-03.jpg"><img src="assets/images/gallery/gallery-03.jpg" alt="ドリンクカウンター"><span>ドリンクカウンター</span></button>
       </div>
     </section>
 
-    <section class="section shell utility-grid">
+    <section class="section shell utility-grid v7-utility-grid">
       <a class="utility utility--purple" href="#"><span>♡</span><strong>相性診断</strong><small>COMING SOON</small></a>
       <a class="utility utility--gold" href="#"><span>▣</span><strong>スタンプカード</strong><small>COMING SOON</small></a>
       <a class="utility utility--green" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener"><span>◎</span><strong>Instagram</strong><small>@bar_kakurega_eito</small></a>
       <a class="utility utility--orange" href="#access"><span>⌖</span><strong>アクセス</strong><small>MAPを見る</small></a>
     </section>
 
-    <section class="section shell" id="access">
+    <section class="section shell v7-section" id="access">
       <article class="store-card reveal">
-        <div><p class="eyebrow">HIDDEN BAR EIGHT</p><h2>隠れ家えいと</h2><p>営業時間 <span data-setting="hours">19:00〜LAST</span></p></div>
-        <div class="store-card__buttons">
-          <a class="gold-button" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener">Instagram</a>
-          <a class="dark-button" href="#">Google Map</a>
-        </div>
+        <div><p class="eyebrow">HIDDEN BAR EIGHT</p><h2 data-setting="storeName">隠れ家えいと</h2><p>営業時間 <span data-setting="hours">19:00〜LAST</span></p></div>
+        <div class="store-card__buttons"><a class="gold-button" href="https://www.instagram.com/bar_kakurega_eito" target="_blank" rel="noopener">Instagram</a><a class="dark-button" href="#">Google Map</a></div>
       </article>
     </section>
   </main>
 
-  <footer class="footer">© HIDDEN BAR EIGHT<br><a href="admin-login.html" style="font-size:8px;color:#5f5954;text-decoration:none">ADMIN</a></footer>
+  <footer class="footer">© HIDDEN BAR EIGHT<br><a href="admin-login.html">ADMIN</a></footer>
 
   <nav class="bottom-nav" aria-label="メインメニュー">
     <a class="active" href="index.html"><span>⌂</span><small>HOME</small></a>
-    <a href="menu.html"><span>≡</span><small>MENU</small></a>
-    <a class="bottom-nav__primary" href="#diagnosis"><span>🍸</span><small>診断</small></a>
-    <a href="#diagnosis"><span>▣</span><small>誕生酒</small></a>
+    <a href="menu.html"><span>♢</span><small>MENU</small></a>
+    <a class="bottom-nav__primary" href="#diagnosis-main"><span>◇</span><small>診断</small></a>
+    <a href="#diagnosis-main"><span>▦</span><small>誕生酒</small></a>
     <a href="#access"><span>⌖</span><small>MAP</small></a>
   </nav>
 
-  <div class="lightbox" aria-hidden="true"><button aria-label="閉じる">×</button><img src="" alt="拡大表示"></div>
+  <div class="lightbox" aria-hidden="true"><button aria-label="閉じる">×</button><img src="" alt="拡大表示"><p></p></div>
 </body>
 </html>
