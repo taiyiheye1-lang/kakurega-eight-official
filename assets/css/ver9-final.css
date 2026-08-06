@@ -442,3 +442,235 @@ body.top-final{
   .top-final .utility{grid-template-columns:48px minmax(0,1fr)}
   .top-final .utility__icon{width:48px;height:48px}
 }
+
+
+/* =========================================================
+   VER.9 FINAL — LAST 8% POLISH
+   実機と完成図の差分調整
+========================================================= */
+
+/* 1. ショートカットカード：完成図と同じ高さ・余白へ */
+.top-final .final-utilities {
+  gap: 12px;
+  padding-top: 38px;
+  padding-bottom: 42px;
+}
+.top-final .utility {
+  min-height: 144px;
+  grid-template-columns: 64px minmax(0,1fr);
+  gap: 16px;
+  padding: 18px 17px;
+  border-radius: 20px;
+}
+.top-final .utility__icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 20px;
+  justify-self: center;
+  align-self: center;
+}
+.top-final .utility__icon svg {
+  width: 32px;
+  height: 32px;
+}
+.top-final .utility__copy {
+  align-self: center;
+  text-align: left;
+}
+.top-final .utility__copy strong {
+  font-size: 16px;
+  line-height: 1.24;
+  margin-bottom: 7px;
+}
+.top-final .utility__copy small {
+  font-size: 9.5px;
+  line-height: 1.35;
+}
+
+/* 2. カード背景の色を少し弱める */
+.top-final .utility--compatibility {
+  box-shadow: inset 0 0 40px rgba(193,98,255,.085);
+}
+.top-final .utility--stamp {
+  box-shadow: inset 0 0 40px rgba(255,159,79,.078);
+}
+.top-final .utility--instagram {
+  box-shadow:
+    inset 0 0 38px rgba(255,85,180,.07),
+    inset -32px -22px 55px rgba(46,173,124,.055);
+}
+.top-final .utility--map {
+  box-shadow: inset 0 0 38px rgba(255,120,70,.072);
+}
+
+/* 3. 店舗情報カード：画像位置・余白・高さ */
+.top-final .final-store {
+  min-height: 342px;
+  background-position: 65% center;
+  border-radius: 24px;
+}
+.top-final .final-store__content {
+  padding: 28px 26px 26px;
+}
+.top-final .final-store h2 {
+  margin-top: 15px;
+  font-size: 35px;
+}
+.top-final .final-store dl {
+  margin: 20px 0 22px;
+}
+.top-final .final-store dl div {
+  grid-template-columns: 88px minmax(0,1fr);
+  gap: 14px;
+}
+
+/* 4. Instagram / Google Map ボタン：完成図に合わせて低く・一直線 */
+.top-final .store-card__buttons {
+  gap: 10px;
+}
+.top-final .social-link-card {
+  min-height: 64px;
+  grid-template-columns: 32px minmax(0,1fr) 36px;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 19px;
+}
+.top-final .social-link-card > svg {
+  width: 27px;
+  height: 27px;
+  align-self: center;
+}
+.top-final .social-link-card span {
+  align-self: center;
+  gap: 1px;
+}
+.top-final .social-link-card strong {
+  font-size: 14px;
+  line-height: 1.2;
+}
+.top-final .social-link-card small {
+  font-size: 8px;
+  line-height: 1.2;
+}
+.top-final .social-link-card b {
+  width: 34px;
+  height: 34px;
+  align-self: center;
+}
+.top-final .social-link-card b svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* 5. ナビゲーション：さらに低く、完成図の比率へ */
+.top-final .bottom-nav {
+  height: 55px;
+  min-height: 55px;
+  border-radius: 21px;
+}
+.top-final .bottom-nav a {
+  height: 49px;
+  min-height: 49px;
+}
+.top-final .bottom-nav .nav-icon {
+  width: 21px;
+  height: 21px;
+}
+.top-final .bottom-nav__primary .nav-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 16px;
+}
+.top-final .bottom-nav small {
+  font-size: 6.8px;
+}
+
+/* 6. 店舗カード下部がナビで隠れない余白 */
+.top-final .final-store-section {
+  padding-bottom: 26px;
+}
+.top-final .refined-footer {
+  padding-bottom: 100px;
+}
+
+/* 7. 小さいiPhone向け */
+@media (max-width: 520px) {
+  .top-final .final-utilities {
+    gap: 10px;
+  }
+
+  .top-final .utility {
+    min-height: 140px;
+    grid-template-columns: 60px minmax(0,1fr);
+    gap: 14px;
+    padding: 17px 15px;
+  }
+
+  .top-final .utility__icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 19px;
+  }
+
+  .top-final .utility__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .top-final .utility__copy strong {
+    font-size: 15px;
+  }
+
+  .top-final .final-store__content {
+    padding: 26px 23px 24px;
+  }
+
+  .top-final .final-store h2 {
+    font-size: 33px;
+  }
+
+  .top-final .social-link-card {
+    min-height: 62px;
+    padding: 9px 13px;
+  }
+
+  .top-final .bottom-nav {
+    left: 13px;
+    right: 13px;
+  }
+}
+
+@media (max-width: 390px) {
+  .top-final .utility {
+    min-height: 136px;
+    grid-template-columns: 56px minmax(0,1fr);
+    gap: 12px;
+    padding: 15px 13px;
+  }
+
+  .top-final .utility__icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .top-final .utility__icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .top-final .utility__copy strong {
+    font-size: 14px;
+  }
+
+  .top-final .utility__copy small {
+    font-size: 8.5px;
+  }
+
+  .top-final .final-store__content {
+    padding: 24px 20px 22px;
+  }
+
+  .top-final .final-store h2 {
+    font-size: 31px;
+  }
+}
